@@ -1,0 +1,290 @@
+<%@page import="javafx.scene.chart.PieChart.Data"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>二手书交易平台</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- 
+
+
+
+//对服务协议按钮做出的判断  
+function arrgement(){  
+	  if(document.getElementById("checked").checked){  
+		          
+		      document.getElementById("zhuce").innerHTML="<input class=\"loginregister\" id=\"loginregister\" type=\"submit\" onclick=\"clickregister()\" value=\"注册 \"  />";  
+		      document.getElementById("loginregister").style.color = "#FFF";  
+		      document.getElementById("loginregister").style.backgroundColor="#60F";  
+		      return true;  
+		}else {  
+		          
+		      document.getElementById("zhuce").innerHTML="<input class=\"loginregister\" id=\"loginregister\" type=\"button\"  value=\"注册 \"  />";  
+		      document.getElementById("loginregister").style.color =="#000000";  
+		      document.getElementById("loginregister").style.backgroundColor="#D5D3CD";  
+		      return false;  
+		  }  
+} 
+ 
+	//判断有没有勾选协议
+			if(document.getElementById("checked").checked==true){  
+				          
+				      document.getElementById("zhuce").innerHTML="<input class=\"loginregister\" id=\"loginregister\" type=\"submit\" onclick=\"clickregister()\" value=\"注册 \"  />";  
+				      document.getElementById("loginregister").style.color = "#FFF";  
+				      document.getElementById("loginregister").style.backgroundColor="#60F";  
+				      //return true;  
+				}else {  
+				          
+				      document.getElementById("zhuce").innerHTML="<input class=\"loginregister\" id=\"loginregister\" type=\"button\"  value=\"注册 \"  />";  
+				      document.getElementById("loginregister").style.color =="#000000";  
+				      document.getElementById("loginregister").style.backgroundColor="#D5D3CD";  
+					  if(flag){
+						flage =  false;
+						}  
+				  }  
+		return flage;
+}
+
+-->
+<style type=text/css>
+.error{
+	color:red;
+}
+.success{
+	color:green;
+}
+.login_add {
+	position: absolute;
+	font-size: 13px;
+	padding-left: 8px;
+}
+</style>
+</head>
+<body>
+<form id="form" name="form" action="${pageContext.request.contextPath}/user_regist.action"  onsubmit="return clickregister()" method="post">
+<div class="container">
+  		<div id="reg_header">
+  			<div class="login_logo">
+  				<img src="img/logo.png" />
+  			</div>
+  			<h1>欢迎注册</h1>
+  			<div class="login_sapn">返回&nbsp;<a href="login.jsp.bak">登录&nbsp;<span class="glyphicon glyphicon-log-out"></span></a></div>
+  		</div>
+  		<div class="login_center">
+  			<div class="login_left">
+  				<div class="login_body">
+	  					<ul>
+	  						
+		  					<li>
+		  						<%--@declare id="username"--%><label for="username">用户名</label>
+		  						<input type="text" id="user_name" class="required" name="user_name"  onblur="userNameBlur()" placeholder="你的昵称"/>
+		  					</li>
+		  					<span id="usernameTip" class="login_add"></span>
+	  						<li>
+	  							<%--@declare id="password"--%><label for="password">设置密码</label>
+	  							<input type="text" id="user_password" class="required" name="user_password" onblur="passwordBlur()" placeholder="设置的复杂点啊"/>
+	  						</li>
+		  					<span id="passwordTip" class="login_add"></span>
+	  						<li>
+	  							<label for="repassword">确认密码</label>
+	  							<input type="text" id="repassword" class="required" name="repassword" onblur="repasswordBlur()" placeholder="和上面一样"/>
+	  						</li>
+		  					<span id="repasswordTip" class="login_add"></span>
+	  						<li>
+	  							<label for="email">邮箱</label>
+	  							<input type="text" id="email" class="required" name="email" onblur="emailBlur()" placeholder="最好是常用邮箱"/>
+	  						</li>
+		  					<span id="emailTip" class="login_add"></span>
+	  						<li>
+	  							<label for="ver_code">验证码</label>
+	  							<input type="text" id="ver_code" class="required" name="ver_code" onblur="ver_codeBlur()"  placeholder="后面的奇怪图片"/>
+	  							<div class="ver_code_img">
+	  								<%--<img id="img" src="${pageContext.request.contextPath }/verify_image.action" onclick= "change()"> --%>
+	  							</div>
+	  						</li>
+	  						<span id="ver_codeTip" class="login_add"></span>
+	  					</ul>
+	  					<div class="login_btn" id="readname">
+	  						<input type="checkbox" id="checked" name="checked" onclick="arrgement()"  value="520" checked="checked"/>&nbsp;
+	  						<!--<input type="checkbox" id="checkbox" name="checkbox" value="520"/>&nbsp;--><span>《二手书注册协议》</span>
+	  						<div id="zhuce" class="loginname">
+	  							<button type="submit" class="loginregister btn btn-default" id="loginregister">立即注册</button>
+		  						<!--<input type="submit" class="loginregister" id="loginregister" value="立即注册">-->
+		  					</div>	
+	  					</div>	
+  				</div>
+  			</div>
+  			<div class="login_right">
+  				<div class="login_partner">
+  					<h3>合作伙伴</h3>
+  					<figure>
+	  					<img src="img/login_1.jpg" />
+	  					<figcaption><a href="http://www.chtc.edu.cn/">巢湖学院</a></figcaption>
+	  				</figure>
+  				</div>
+  			</div>
+  		</div>
+  		
+  		
+  	</div>
+  	
+  	<footer class="tail">
+  		
+  	</footer>
+  	
+  	
+  	
+  	<!--javascript代码部分-->
+  	<script type="text/javascript">
+	//验证登录名
+	function userNameBlur() {
+			// 获取用户输入的登录名
+			var user_name = $("#user_name").val();
+			// 进行判断，说明没有输入登录名
+			if(user_name.trim() == ""){
+				// 给提示
+				$("#usernameTip").addClass("error").html("登录名不能为空");
+				
+			}else{
+				// 登录名不为空，ajax请求，验证
+				var url = "${pageContext.request.contextPath}/user_checkCode.action";
+				var param = {"user_name":user_name};
+				$.post(url,param,function(data){
+					// 操作data，进行判断
+					if(data && data == "no"){
+						// 提示
+						$("#usernameTip").addClass("error").html("登录名已经存在");
+					}else{
+						
+						$("#usernameTip").removeClass("error").addClass("success").html("√可以使用");
+					}
+				});
+			}
+	} 
+	
+	//验证密码
+	function passwordBlur(){
+		var user_password = $("#user_password").val();
+		// 进行判断，说明没有输入密码
+		if(user_password.trim() == ""){
+			// 给提示
+			$("#passwordTip").addClass("error").html("密码不能为空");
+		}else{
+			$("#passwordTip").removeClass("error").addClass("success").html("√可以使用");
+		}
+	}
+	//再次验证密码
+	function repasswordBlur(){
+		 var repassword=$("#repassword").val();  
+		 var user_password = $("#user_password").val();  
+		 if(repassword.trim() == "") {  
+			// 给提示
+			$("#repasswordTip").addClass("error").html("确认密码不能为空");
+		}else{
+			 if(repassword.trim()!= user_password.trim()){  
+			// 给提示
+			$("#repasswordTip").addClass("error").html("两次密码输入必须一致");
+		 }else {  
+		   $("#repasswordTip").removeClass("error").addClass("success").html("√密码一致");
+		 }  
+		}
+			
+		
+	}
+	
+	//验证邮箱
+	function emailBlur(){
+		var email = $("#email").val();
+		// 进行判断，说明没有输入密码
+		if(email.trim() == ""){
+			// 给提示
+			$("#emailTip").addClass("error").html("邮箱不能为空");
+		}else{
+			if(!/.+@.+\.[a-zA-Z]{2,4}$/.test(email)){
+				// 给提示
+				$("#emailTip").addClass("error").html("邮箱格式不正确！");
+			}else{
+				//邮箱不为空，ajax请求，验证
+				var url = "${pageContext.request.contextPath}/user_checkEmail.action";
+				var param = {"email":email};
+				$.post(url,param,function(data){
+					// 操作data，进行判断
+					if(data && data == "yes"){
+						// 提示
+						$("#emailTip").addClass("error").html("邮箱已经存在！");
+					}else{
+						
+						$("#emailTip").removeClass("error").addClass("success").html("√可以使用");
+					}
+				});
+			}
+		} 
+			
+	}
+	
+	//验证码（加“flag=”可以解决刷新验证码报数据类型异常）
+	function change(){
+		var img = document.getElementById("img");
+		img.src="${pageContext.request.contextPath }/verify_image.action?flag="+new Date().getTime();
+	}
+	
+	//验证验证码
+	function ver_codeBlur(){
+		var ver_code = $("#ver_code").val();
+		// 进行判断，说明没有输入密码
+		if(ver_code.trim() == ""){
+			// 给提示
+			$("#ver_codeTip").addClass("error").html("验证码不能为空");
+		}else{
+			// 验证码不为空，ajax请求，验证
+			var url = "${pageContext.request.contextPath}/user_checkVerCode.action";
+			var param = {"ver_code":ver_code};
+			$.post(url,param,function(data){
+				// 操作data，进行判断
+				if(data && data == "no"){
+					// 提示
+					$("#ver_codeTip").addClass("error").html("验证码错误");
+				}else{
+					
+					$("#ver_codeTip").removeClass("error").addClass("success").html("√正确");
+				}
+			});
+		}
+	}
+	
+	
+	// 可以阻止表单的提交
+	function clickregister(){
+		// 先让校验名称的方法先执行
+		userNameBlur();
+		passwordBlur();
+		repasswordBlur();
+		emailBlur();
+		ver_codeBlur();
+		if($(".error").length> 0){
+			return false;
+		}else{
+			//alert("注册成功！请去邮箱激活！");
+			return true;
+		}
+	}
+	</script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <!-- 引入JQ -->
+	<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </form>
+</body>
+</html>

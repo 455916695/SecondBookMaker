@@ -1,0 +1,158 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>二手书交易平台</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <!-- 引入JQ -->
+</head>
+<body>
+	<form id="form" name="form" action="${pageContext.request.contextPath }/user_login.action" onsubmit="return clickLogin()" method="post">
+		<div class="container">
+		  		<div id="reg_header">
+		  			<div class="login_logo">
+		  				<img src="img/logo.png" />
+		  			</div>
+		  			<h1>欢迎登录</h1>
+		  			<div class="login_sapn">返回&nbsp;<a href="home_page.jsp">首页&nbsp;<span class="glyphicon glyphicon-log-out"></span></a></div>
+		  		</div>
+	  	</div>
+	  	<div id="reg_center" class="reg_center">
+	  		<div class="container" id="reg_background">
+	  			<div class="reg_reg">
+	  				<h3>用户登录</h3>
+	  					<form>
+		  					<tr>
+		  						 <div class="input-group">
+								      <div class="input-group-addon">
+								      	<span class="glyphicon glyphicon-user"></span>
+								      </div>
+								      <input type="text" name="email" id="email" class="required" onblur="emailBlur()" placeholder="邮箱" />
+							    </div>
+		  					</tr>
+		  					<span id="emailTip" class="reg_span"></span>
+		  					<tr>
+		  						<div class="input-group">
+							      <div class="input-group-addon">
+							      	<span class="glyphicon glyphicon-lock"></span>
+							      </div>
+							      <input type="password" name="user_password" id="user_password" class="required" onblur="passwordBlur()" placeholder="请输入密码" />
+							   </div>
+		  					</tr>
+		  					<span id="passwordTip" class="reg_span"></span>
+		  					<tr>
+		  						<input type="checkbox" id="checkbox" name="remember" value="222"/><span>记住密码</span>
+		  						<a href="" id="forget_pw">忘记密码</a>
+		  					</tr>
+		  					<tr>
+		  						<div id="denglu" class="dengluname">
+		  							<button type="submit" id="login" class="btn login">登录</button>
+			  					</div>	
+		  					</tr>
+		  					<tr>
+		  						<a href="" id="login_other">登录途径</a>
+		  						<a href="${pageContext.request.contextPath }/regist.jsp" id="reg_ontime">立即注册&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
+		  					</tr>
+		  				</form>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script type="text/javascript">
+		//验证邮箱
+		function emailBlur(){
+			var email = $("#email").val();
+			// 进行判断，说明没有输入密码
+			if(email.trim() == ""){
+				// 给提示
+				$("#emailTip").addClass("error");
+				$("#emailTip").html("邮箱不能为空！");		
+			}else {
+				//邮箱不为空
+				if(!/.+@.+\.[a-zA-Z]{2,4}$/.test(email)){
+					// 给提示
+					$("#emailTip").addClass("error");
+					$("#emailTip").html("邮箱格式不正确！");
+				}else{
+					//ajax请求验证
+					var url = "${pageContext.request.contextPath}/user_checkEmail.action";
+					var param = {"email":email};
+					
+					$.post(url,param,function(data){
+						//操作data进行判断
+						if(data && data == "no"){
+							//提示
+							$("#emailTip").addClass("error");
+							$("#emailTip").html("邮箱不存在！");
+						}else if(data && data == "yet"){
+							//邮箱未激活
+							//提示
+							$("#emailTip").addClass("error");
+							$("#emailTip").html("邮箱未激活！请激活！");
+						}else{
+							$("#emailTip").removeClass("error");
+							$("#emailTip").addClass("success");
+							$("#emailTip").html("√输入正确");
+						}
+						
+					});
+					
+					
+				}
+					
+					
+			 }
+		}
+
+		//验证密码
+		function passwordBlur(){
+			
+			var user_password = $("#user_password").val();
+			// 进行判断，说明没有输入密码
+			if(user_password.trim() == ""){
+				// 给提示
+				$("#passwordTip").addClass("error").html("密码不能为空");
+			}else{
+				//ajax请求验证
+				var url = "${pageContext.request.contextPath}/user_checkPassword.action";
+				var param = {"user_password":user_password};
+				$.post(url,param,function(data){
+					//操作data进行判断
+					if(data && data == "no"){
+						//提示
+						$("#passwordTip").addClass("error").html("密码错误！请重试");
+					}
+					else{
+						$("#passwordTip").removeClass("error").addClass("success").html("√ 输入正确");
+					}
+				});
+			} 
+		}
+		
+		function clickLogin(){
+			emailBlur();
+			passwordBlur();
+			if($(".error").length> 0){
+				return false;
+			}
+		}
+	
+		</script>
+	   <script src="js/bootstrap.min.js"></script>
+	   <script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-1.11.3.min.js"></script>
+  </form>
+</body>
+</html>
