@@ -13,7 +13,7 @@ public class LoginController {
 
 
     @Autowired
-    private UserService service;
+//    private UserService service;
 
     @RequestMapping("/page/login")
     public String showLogin() {
@@ -25,9 +25,10 @@ public class LoginController {
     @ResponseBody
     public SBResult login(TbUser tbUser) {
         //调用方法登录
-        SBResult sbResult = service.login(tbUser);
+//        SBResult sbResult = service.login(tbUser);
         //返回结果
-        return sbResult;
+//        return sbResult;
+        return  null;
     }
 
 }

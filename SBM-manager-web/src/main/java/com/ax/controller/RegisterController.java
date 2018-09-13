@@ -21,8 +21,8 @@ public class RegisterController {
     private static String NO = "no";
     private static String YES = "yes";
 
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private UserService userService;
 
 
     /**
@@ -47,9 +47,10 @@ public class RegisterController {
     @ResponseBody
     public SBResult check (@PathVariable String param, @PathVariable Integer type){
         //获取参数，调用service方法，返回结果
-        SBResult check = userService.check(param, type);
+//        SBResult check = userService.check(param, type);
         //返回结果
-        return check;
+//        return check;
+        return null;
     }
 
     /**
@@ -60,8 +61,9 @@ public class RegisterController {
     public SBResult  register(TbUser tbUser) {
 
         //调用方法，注册用户
-       SBResult sbResult =  userService.register(tbUser);
+//       SBResult sbResult =  userService.register(tbUser);
         //返回结果
-        return sbResult;
+//        return sbResult;
+        return null;
     }
 }
