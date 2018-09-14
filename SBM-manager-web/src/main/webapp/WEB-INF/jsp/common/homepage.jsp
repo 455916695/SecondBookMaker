@@ -61,7 +61,7 @@
 	  				<a href="sell_book.jsp"><!--<span class="glyphicon glyphicon-log-in"></span>&nbsp;-->卖书</a></li><li >
 	  				<a href="${pageContext.request.contextPath }/cart_findByPage.action"><!--<span class="glyphicon glyphicon-tasks"></span>&nbsp;-->书架</a></li><li >
 	  				<a href="client.jsp"><!--<span class="glyphicon glyphicon-phone"></span>&nbsp;-->客户端</a></li><li >
-	  				<a href="community.jsp"><!--<span class="glyphicon glyphicon-comment"></span>&nbsp;-->社区</a></li>
+	  				<a href="http://localhost:8849/common/community"><!--<span class="glyphicon glyphicon-comment"></span>&nbsp;-->社区</a></li>
 	  		</ul>
   		</div>
   	</nav>
