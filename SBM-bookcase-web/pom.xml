@@ -89,7 +89,11 @@
     </dependencies>
 
     <build>
+<<<<<<< HEAD
         <finalName>SBM-bookcase-web</finalName>
+=======
+        <finalName>SBM-manager-web</finalName>
+>>>>>>> origin/master
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <!-- 配置tomcat插件 -->
