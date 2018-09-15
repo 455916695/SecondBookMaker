@@ -70,9 +70,9 @@
 	  		<ul class="hp_ul">
 	  			<li>
 					<a href="http://localhost:8847/"><%-- <span class="glyphicon glyphicon-home"></span>&nbsp; --%>首页</a></li><li >
-					<a href="${pageContext.request.contextPath }/book_findAllBooks.action"><!--<span class="glyphicon glyphicon-th-list"></span>&nbsp;-->书库</a></li><li >
-					<a href="${pageContext.request.contextPath }/wish_findByPage.action"><!--<span class="glyphicon glyphicon-list-alt"></span>&nbsp;-->心愿单</a></li><li >
-					<a href="sellbook.jsp"><!--<span class="glyphicon glyphicon-log-in"></span>&nbsp;-->卖书</a></li><li class="active">
+					<a href="http://localhost:8859/common/stack"><!--<span class="glyphicon glyphicon-th-list"></span>&nbsp;-->书库</a></li><li >
+					<a href="http://localhost:8857/common/wishlist"><!--<span class="glyphicon glyphicon-list-alt"></span>&nbsp;-->心愿单</a></li><li >
+					<a href="http://localhost:8855/common/sellbook"><!--<span class="glyphicon glyphicon-log-in"></span>&nbsp;-->卖书</a></li><li class="active">
 					<a href="javascript:void(0)"><span class="glyphicon glyphicon-tasks"></span>&nbsp;书架</a></li><li>
 					<a href="http://localhost:8851/common/client"><!--<span class="glyphicon glyphicon-phone"></span>&nbsp;-->客户端</a></li><li >
 					<a href="http://localhost:8849/common/community"><!--<span class="glyphicon glyphicon-comment"></span>&nbsp;-->社区</a></li>

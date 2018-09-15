@@ -46,7 +46,7 @@
 
     <!-- 引用dubbo服务 -->
     <dubbo:application name="SBM-client-web"/>
-    <dubbo:registry protocol="zookeeper" address="192.168.25.128:2185"/>
+    <dubbo:registry protocol="zookeeper" address="192.168.25.128:2187"/>
     <!--<dubbo:reference interface="com.ax.e3.service.ItemService" id="itemService" />-->
 
 
