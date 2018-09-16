@@ -12,7 +12,7 @@
     <artifactId>SBM-manager-web</artifactId>
     <packaging>war</packaging>
 
-    <name>SBM-managerp-web</name>
+    <name>SBM-manager-web</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 

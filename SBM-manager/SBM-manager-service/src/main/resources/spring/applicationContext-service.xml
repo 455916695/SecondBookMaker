@@ -21,6 +21,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
     <!-- 声明需要暴露的服务接口 -->                                         <!-- 设置超时时间为10分钟 600秒 -->
-    <!--<dubbo:service interface="com.ax.e3.service.ItemService" ref="itemServiceImpl" timeout="600000"/>-->
+    <dubbo:service interface="com.ax.service.TbBookCatService" ref="tbBookCatServiceImpl" timeout="600000"/>
 
 </beans>

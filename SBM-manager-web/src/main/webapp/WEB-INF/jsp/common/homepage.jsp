@@ -1,21 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>二手书交易平台</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/home_page.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<script src="${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
 </head>
 <body>
 <!--网页最上面的横条-->
@@ -66,111 +63,57 @@
 	  		</ul>
   		</div>
   	</nav>
-  	
-  	
+
   	<!--主体轮播图一行栏-->
   	<div id="img_play" class="container">
   		<div class="row">
   			<div class="col-xs-3">
   				<div id="index_book">
   					<h3>书籍分类</h3>
-  					<ul>
-  						<li>
-  							<div class="book_search">
-  								<span>古籍</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">诗类</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">书类</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">礼类</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">易类</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">春秋</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>小说</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">推理</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">言情</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">武侠</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">玄幻</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">恐怖</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>文化</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">地域</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">湘楚</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">华夏</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">关东</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">草原</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>历史</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">五代</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">十国</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">秦楚</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">两汉</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">清朝</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>少儿</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">学前</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">美术</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">诗歌</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">启蒙</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">卡通</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>语言</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">汉语</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">英语</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">法语</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">日语</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">德语</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>科普</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">动物</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">生态</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">鸟类</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">昆虫</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">地震</a></li>
-  								</ul>
-  							</div>
-  						</li>
-  						<li>
-  							<div class="book_search">
-  								<span>更多</span>
-  								<ul>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">医学</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">网络</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">摄影</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">旅游</a></li>
-  									<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">工具</a></li>
-  								</ul>
-  							</div>
-  						</li>
+  					<ul id="bookcatUl">
+						<script type="text/javascript" >
+                            $(function () {
+                                $.ajax({
+                                    type: "GET",                                                   //请求方式
+                                    url: "/bookcat/findBookCatByParentId",//地址，就是json文件的请求路径
+                                    dataType: "json",
+                                    cache: true,
+                                    success: function(result) {              //返回的参数就是 action里面所有的有get和set方法的参数
+										for (var i = 0; i<result.length ;i++) {
+											var tbBookCat = result[i];
+											var name = tbBookCat.name;
+											var id = tbBookCat.id;
+										    var childList = tbBookCat.childList;
+										    $("#bookcatUl").append("<li><div class='book_search'><span>"+name+"</span><ul id='"+id+"'></ul></div></li>")
+											lookList(childList);
+										}
+
+                                    }
+                                });
+                            });
+
+                            function lookList(childList) {
+									for(var i = 0 ;i < childList.length ;i++) {
+                                        var childBookCat  = childList[i];
+                                        var parentId = childBookCat.parentId;
+                                        var name = childBookCat.name;
+										$("#"+parentId).append("<li><a href='${pageContext.request.contextPath }/book_findAllBooks.action'>"+name+"</a></li>")
+									}
+                            }
+
+						</script>
+  						<%--<li>--%>
+  							<%--<div class="book_search">--%>
+  								<%--<span>古籍</span>--%>
+  								<%--<ul id="parentId">--%>
+  									<%--<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">诗类</a></li>--%>
+  									<%--<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">书类</a></li>--%>
+  									<%--<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">礼类</a></li>--%>
+  									<%--<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">易类</a></li>--%>
+  									<%--<li><a href="${pageContext.request.contextPath }/book_findAllBooks.action">春秋</a></li>--%>
+  								<%--</ul>--%>
+  							<%--</div>--%>
+  						<%--</li>--%>
   					</ul>
   				</div>
   			</div>
@@ -682,7 +625,8 @@
   		
   	</footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.js"></script>
+    <%--<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.js"></script>--%>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/index.js"></script>
