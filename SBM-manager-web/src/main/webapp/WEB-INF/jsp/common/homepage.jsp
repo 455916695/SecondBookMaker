@@ -70,7 +70,8 @@
   			<div class="col-xs-3">
   				<div id="index_book">
   					<h3>书籍分类</h3>
-  					<ul id="bookcatUl">
+					<div  style="z-index: 1000;">
+  					<ul id="bookcatUl" style="z-index: 2000;">
 						<script type="text/javascript" >
                             $(function () {
                                 $.ajax({
@@ -84,24 +85,57 @@
 											var name = tbBookCat.name;
 											var id = tbBookCat.id;
 										    var childList = tbBookCat.childList;
-										    $("#bookcatUl").append("<li><div class='book_search'><span>"+name+"</span><ul id='"+id+"'></ul></div></li>")
+										    $("#bookcatUl").append("<li class='bookCatLi' ><input type='hidden' value='"+id+"'><div class='book_search'><span>"+name+"</span><ul id='"+id+"'></ul></div></li>")
 											lookList(childList);
 										}
 
                                     }
                                 });
+
                             });
 
                             function lookList(childList) {
-									for(var i = 0 ;i < childList.length ;i++) {
-                                        var childBookCat  = childList[i];
-                                        var parentId = childBookCat.parentId;
-                                        var name = childBookCat.name;
-										$("#"+parentId).append("<li><a href='${pageContext.request.contextPath }/book_findAllBooks.action'>"+name+"</a></li>")
-									}
-                            }
+                                for(var i = 0 ;i < childList.length ;i++) {
+                                    var childBookCat  = childList[i];
+                                    var bookCatId = childBookCat.id;
+                                    var parentId = childBookCat.parentId;
+                                    var name = childBookCat.name;
+                                    $("#"+parentId).append("<li><a href=${pageContext.request.contextPath }/bookcat/findBookByCatId?bookCatId="+bookCatId+">"+name+"</a></li>")
+                                }
+                            };
+
+//                            //jquery动态添加的元素不能直接绑定事件，可用如下的方案
+//                            $("body").on("mouseover", ".bookCatLi", function() {
+//                                $("#bookCatDiv").show();
+//                            	var idInp = $(".bookCatLi").children("input");
+//
+//                                $.ajax({
+//                                    type: "GET",                                                   //请求方式
+//                                    url: "/bookcat/findBookCatByParentId?parentId="+idInp.val(),//地址，就是json文件的请求路径
+//                                    dataType: "json",
+//                                    cache: false,
+//                                    success: function(result) {              //返回的参数就是 action里面所有的有get和set方法的参数
+//                                        $("#bookCatDiv").append("<ul id='bookcatUl2'></ul>");
+//                                        for (var i = 0; i<result.length ;i++) {
+//                                            var tbBookCat = result[i];
+//                                            var name = tbBookCat.name;
+//                                            var id = tbBookCat.id;
+//                                            var childList = tbBookCat.childList;
+//                                            $("#bookcatUl2").append("<li  ><input type='hidden' value='"+id+"'><div class='book_search'><span>"+name+"</span><ul id='"+id+"'></ul></div></li>")
+//
+//                                        }
+//                                    }
+//                                });
+//                                $("#bookCatDiv").mouseout(function () {  //此处存在问题未曾解决
+//                                    $("#bookCatDiv").hide();
+//                                });
+
+//                            });
 
 						</script>
+						<%-- 附带的小框   z-index: 设置覆盖的属性 --%>
+						<div id="bookCatDiv" style="border: 1px solid black;width: 660px;height:323px;position: absolute;left: 15px;top: 47px;z-index: 100;display:none;background-color: beige">
+						</div>
   						<%--<li>--%>
   							<%--<div class="book_search">--%>
   								<%--<span>古籍</span>--%>
@@ -115,8 +149,10 @@
   							<%--</div>--%>
   						<%--</li>--%>
   					</ul>
+					</div>
   				</div>
   			</div>
+
   			<div class="col-xs-6">
   				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 					  <!-- Indicators -->
